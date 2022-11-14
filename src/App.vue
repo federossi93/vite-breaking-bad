@@ -1,26 +1,39 @@
 <script>
 import { store } from './store.js'
 import axios from "axios";
+import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
+import AppFooter from './components/AppFooter.vue';
 
 export default {
   name: "App",
+
   components: {
+    AppHeader,
+    AppMain,
+    AppFooter,
   },
+
   data() {
     return {
       store
 
     }
   },
+
   methods: {
     callApi(url) {
       axios.get(url)
         .then(response => {
           console.log(response);
-          this.store.personaggi = response.data
+          this.store.name = response.data
+          this.store.lunghezza = response.data.length
+          // this.store.personaggio = response.data
+          // creo e aggiungo una nuova proprietà
         })
     }
   },
+
   mounted() {
     this.callApi(this.store.API_URL)
   }
@@ -29,21 +42,15 @@ export default {
 </script>
 
 <template>
-  <div class="container">
-    <div class="row row-cols-4">
-      <div class="col" v-for="personaggio in store.personaggi">
-        <img class="immagini" :src="personaggio.img" alt="">
-        <h2 class="name">{{ personaggio.name }}</h2>
-        <h3>{{ personaggio.category }}</h3>
-        <h3>{{ personaggio.status }}</h3>
-      </div>
-    </div>
-  </div>
+
+  <AppHeader/>
+  <AppMain/>
+  <AppFooter/>
+
 </template>
 
-<style scoped>
-.immagini {
-  width: 300px;
-  height: 400px;
+<style>
+body{
+  background-color: rgb(47, 47, 49);
 }
 </style>

@@ -5,4 +5,5 @@ API_URL: 'https://www.breakingbadapi.com/api/characters',
 name: null,
 category: null,
 status: null,
+lunghezza: null,
 })
