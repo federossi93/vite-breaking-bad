@@ -32,15 +32,13 @@ export default {
       this.selected = event.target.value
       console.log(this.selected);
       if (this.selected == "Breaking+Bad") {
-        let BetterCallSoul = `${this.store.API_URL}?category=${this.selected}`
-        //let brakingBad = `${this.store.API_URL}?category=${this.selected}`
-        this.callApi(BetterCallSoul)
-        console.log(BetterCallSoul);
+        let brakingBad = `${this.store.API_URL}?category=${this.selected}`
+        this.callApi(brakingBad)
+        console.log(brakingBad);
       } else if (this.selected == "Better+Call+Saul") {
-        let BetterCallSoul2 = `${this.store.API_URL}?category=${this.selected}`
-        //let BetterCall = `${this.store.API_URL}?category=${this.selected}`
-        this.callApi(BetterCallSoul2)
-        console.log(BetterCallSoul2);
+        let BetterCall = `${this.store.API_URL}?category=${this.selected}`
+        this.callApi(BetterCall)
+        console.log(BetterCall);
       } else {
         this.callApi(this.store.API_URL)
         console.log("ciao");
@@ -57,7 +55,7 @@ export default {
 <template>
 
   <AppHeader />
-  <AppMain @AllSeries="ciaoMio" />
+  <AppMain @allSeries="ciaoMio" />
   <AppFooter />
 
 </template>

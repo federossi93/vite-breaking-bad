@@ -19,7 +19,7 @@ export default {
     <h1 class="text-light p-3">Braking Bad Api</h1>
 
     <div class="container py-5">
-      <select class="form-select" @change="$emit('AllSeries')">
+      <select class="form-select" @change="$emit('allSeries')">
         <option value="All characters">AllSeries</option>
         <option value="Breaking+Bad">brakingBad</option>
         <option value="Better+Call+Saul">batterCallSaul</option>
