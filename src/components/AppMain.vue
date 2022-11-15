@@ -3,6 +3,7 @@ import { store } from '../store.js'
 
 export default {
   name: "AppMain",
+  emits: ['allSeries'],
   data() {
     return {
       store
@@ -29,9 +30,9 @@ export default {
 
 
   <main>
-    <div class="container p-4  bg-light">
+    <div class="container p-4 bg-light">
 
-      <div class="  mt-5 p-2 bg-dark ">
+      <div class="mt-5 p-2 bg-dark">
         <h5 class="text-light">Found {{ store.lunghezza }} caracters</h5>
       </div>
 

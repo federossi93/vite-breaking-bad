@@ -1,7 +1,7 @@
 <script>
 import { store } from './store.js'
 import axios from "axios";
-import AppHeader from './components/AppHeader.vue';
+//import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppFooter from './components/AppFooter.vue';
 
@@ -9,7 +9,7 @@ export default {
   name: "App",
 
   components: {
-    AppHeader,
+    //AppHeader,
     AppMain,
     AppFooter,
   },
@@ -28,7 +28,7 @@ export default {
           this.store.lunghezza = response.data.length
         })
     },
-    ciaoMio() {
+    setUrl() {
       this.selected = event.target.value
       console.log(this.selected);
       if (this.selected == "Breaking+Bad") {
@@ -36,9 +36,9 @@ export default {
         this.callApi(brakingBad)
         console.log(brakingBad);
       } else if (this.selected == "Better+Call+Saul") {
-        let BetterCall = `${this.store.API_URL}?category=${this.selected}`
-        this.callApi(BetterCall)
-        console.log(BetterCall);
+        let betterCall = `${this.store.API_URL}?category=${this.selected}`
+        this.callApi(betterCall)
+        console.log(betterCall);
       } else {
         this.callApi(this.store.API_URL)
         console.log("ciao");
@@ -54,8 +54,8 @@ export default {
 
 <template>
 
-  <AppHeader />
-  <AppMain @allSeries="ciaoMio" />
+  <!--<AppHeader />-->
+  <AppMain @allSeries="setUrl" />
   <AppFooter />
 
 </template>
