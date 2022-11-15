@@ -8,7 +8,7 @@ export default {
       store
     }
   },
-  
+
 }
 
 </script>
@@ -18,16 +18,12 @@ export default {
   <main>
     <h1 class="text-light p-3">Braking Bad Api</h1>
 
-    <div class="dropdown container mt-5 mb-4 ">
-      <a class="btn btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Select Category
-      </a>
-
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#" @click="$emit('AllSeries')">All</a></li>
-        <li><a class="dropdown-item" href="#" @click="$emit('brakingBad')">breking bad</a></li>
-        <li><a class="dropdown-item" href="#" @click="$emit('batterCallSaul')">batter call saul</a></li>
-      </ul>
+    <div class="container py-5">
+      <select class="form-select" @change="$emit('AllSeries')">
+        <option value="All characters">AllSeries</option>
+        <option value="Breaking+Bad">brakingBad</option>
+        <option value="Better+Call+Saul">batterCallSaul</option>
+      </select>
     </div>
   </main>
 

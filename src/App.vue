@@ -24,33 +24,32 @@ export default {
     callApi(url) {
       axios.get(url)
         .then(response => {
-          //console.log(response);
           this.store.name = response.data
           this.store.lunghezza = response.data.length
-          // this.store.personaggio = response.data
-          // creo e aggiungo una nuova proprietà
         })
     },
-    AllSeries() {
-      console.log("click su All");
-      this.callApi(this.store.API_URL)
+    ciaoMio() {
+      this.selected = event.target.value
+      console.log(this.selected);
+      if (this.selected == "Breaking+Bad") {
+        let BetterCallSoul = `${this.store.API_URL}?category=${this.selected}`
+        //let brakingBad = `${this.store.API_URL}?category=${this.selected}`
+        this.callApi(BetterCallSoul)
+        console.log(BetterCallSoul);
+      } else if (this.selected == "Better+Call+Saul") {
+        let BetterCallSoul2 = `${this.store.API_URL}?category=${this.selected}`
+        //let BetterCall = `${this.store.API_URL}?category=${this.selected}`
+        this.callApi(BetterCallSoul2)
+        console.log(BetterCallSoul2);
+      } else {
+        this.callApi(this.store.API_URL)
+        console.log("ciao");
+      }
     },
-    brakingBad() {
-      console.log("click su breking bad");
-      this.callApi(`${this.store.API_URL}?category=Breaking+Bad`)
-      
-    },
-    batterCallSaul() {
-      console.log("click su batter call saul");
-      this.callApi(`${this.store.API_URL}?category=Better+Call+Saul`)
-    },
-
   },
-
   mounted() {
     this.callApi(this.store.API_URL)
   }
-
 }
 
 </script>
@@ -58,7 +57,7 @@ export default {
 <template>
 
   <AppHeader />
-  <AppMain @batterCallSaul="batterCallSaul" @brakingBad="brakingBad" @AllSeries="AllSeries"/>
+  <AppMain @AllSeries="ciaoMio" />
   <AppFooter />
 
 </template>
